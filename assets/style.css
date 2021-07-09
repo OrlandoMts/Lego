@@ -48,6 +48,17 @@ body {
   align-items: center;
   width: 100%;
   padding: 0 0 0 80px;
+
+  animation: 2s navbar 0.5s ease-in-out;
+}
+
+@keyframes navbar {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .navbar__content img {
@@ -78,7 +89,7 @@ body {
   position: absolute;
   z-index: 3;
 
-  animation: loader 0s linear forwards;
+  animation: loader 1s linear forwards;
 }
 
 @keyframes loader {
