@@ -8,13 +8,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Lato", sans-serif;
 }
 
 body {
   height: 100vh;
   overflow: hidden;
   font-size: 62.5%;
-  font-family: "Lato", sans-serif;
 }
 
 .page {
@@ -38,9 +38,11 @@ body {
   height: 100%;
 }
 
+/* START NAVBAR */
+
 .navbar {
-  background-color: var(--yellow);
   grid-area: nav;
+  display: flex;
 }
 
 .navbar__content {
@@ -76,8 +78,118 @@ body {
 .navbar__content ul li a {
   text-decoration: none;
   color: var(--red);
-  font-weight: 100;
+  font-weight: 300;
 }
+
+/* END NAVBAR */
+
+/* START CONTENT */
+
+.main-content {
+  grid-area: section;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 80px;
+
+  animation: 2s main-content 0.5s ease-in-out;
+}
+
+@keyframes main-content {
+  0% {
+    transform: translateY(-600px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.main-content p:first-child {
+  font-size: 3.6em;
+  font-weight: 300;
+  margin-left: 30px;
+  margin-bottom: -12px;
+}
+
+h1 {
+  font-size: 4.8em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.main-content p:last-child {
+  font-weight: 300;
+  width: 60%;
+}
+
+/* START ASIDE */
+
+.container .aside-content {
+  grid-area: aside;
+  position: relative;
+}
+
+.aside-content .aside__div-yellow {
+  width: 50%;
+  height: 100%;
+  background-color: var(--yellow);
+  position: absolute;
+  right: 0;
+}
+
+.aside-content h2 {
+  font-size: 2em;
+  font-weight: 300;
+  position: absolute;
+  top: 50%;
+  left: -70%;
+  transform: translate(-30%, -50%) rotate(-90deg);
+  opacity: 0;
+
+  animation: name-superhero 1s linear 2s forwards;
+}
+
+.aside-content img {
+  position: absolute;
+  width: 100px;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, 100%); */
+
+  animation: move-superhero 2s ease-in-out 0.5s;
+}
+
+@keyframes name-superhero {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes move-superhero {
+  0% {
+    transform: translateX(600px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* END ASIDE */
+
+/* END CONTENT */
+
+/* START LOADER */
 
 .loader {
   background-color: white;
@@ -89,7 +201,7 @@ body {
   position: absolute;
   z-index: 3;
 
-  animation: loader 1s linear forwards;
+  animation: loader 0s linear forwards;
 }
 
 @keyframes loader {
@@ -144,3 +256,5 @@ body {
     transform: scale(1);
   }
 }
+
+/* END LOADER */
