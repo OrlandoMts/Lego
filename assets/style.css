@@ -139,7 +139,7 @@ h1 {
 }
 
 .aside-content h2 {
-  font-size: 2em;
+  font-size: 4em;
   font-weight: 300;
   position: absolute;
   top: 50%;
@@ -250,7 +250,7 @@ h1 {
   position: absolute;
   z-index: 3;
 
-  animation: loader 0s linear forwards;
+  animation: loader 1.5s linear forwards;
 }
 
 @keyframes loader {
@@ -307,3 +307,107 @@ h1 {
 }
 
 /* END LOADER */
+
+/* START MODAL */
+
+.modal {
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 3;
+}
+
+.hidden {
+  display: none;
+}
+
+.vissible {
+  display: grid;
+}
+
+.modal__content {
+  display: grid;
+  place-items: center;
+  align-items: flex-start;
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  position: relative;
+}
+
+.modal__content .modal__content-close {
+  cursor: pointer;
+}
+
+.modal__content--slider {
+  width: 300px;
+  height: 200px;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 25%;
+}
+
+.modal__content .close {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+.cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  cursor: pointer;
+  background-color: var(--yellow);
+
+  transition: transform 0.5s ease;
+}
+
+.card .cards--sh {
+  width: 100px;
+  height: 120px;
+}
+
+#radio-1,
+#radio-2,
+#radio-3 {
+  display: none;
+}
+
+#radio-1:checked ~ .cards #card-1,
+#radio-2:checked ~ .cards #card-2,
+#radio-3:checked ~ .cards #card-3 {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+#radio-1:checked ~ .cards #card-2,
+#radio-2:checked ~ .cards #card-3,
+#radio-3:checked ~ .cards #card-1 {
+  transform: translateX(40%) scale(0.8);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+#radio-1:checked ~ .cards #card-3,
+#radio-2:checked ~ .cards #card-1,
+#radio-3:checked ~ .cards #card-2 {
+  transform: translateX(-40%) scale(0.8);
+  opacity: 0.5;
+  z-index: 0;
+}
+/* END MODAL */
